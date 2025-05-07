@@ -1,8 +1,8 @@
-// next.config.js
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  experimental: {
-    turbo: false, // explicitly disable turbopack
-  },
+  /* config options here */
 }
-
-module.exports = nextConfig;
+ 
+module.exports = nextConfig

@@ -10,7 +10,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  ...compat.config({
+    extends: ['next', 'prettier'],
+  }),
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
+// import.meta.dirname is available after Node.js v20.11.0
+compat.baseDirectory = import.meta.dirname;
 
 export default eslintConfig;
