@@ -1,10 +1,9 @@
-"use server";
-import { signIn, signOut } from "next-auth/react";
+"use client";
 
-export const login = async () => {
-    await signIn("github", { callbackUrl: "/" });
-};
+import { signIn } from "next-auth/react";
 
-export const logout = async () => {
-    await signOut({ redirect: false, callbackUrl: "/" });
+export const login = async (provider: string) => {
+    if (typeof window !== "undefined") {
+        await signIn(provider, { callbackUrl: "/" });
+    }
 };
