@@ -35,9 +35,9 @@ export default function Mainpage() {
                 </div>
 
                 {/* Draw Button */}
-                <div className="flex flex-col items-center  mt-12">
+                <div className="flex flex-col items-center mt-12">
                     <Link href="/Login">
-                        <button className="bg-white text-black text-[24px] font-bold py-2 px-8 rounded-lg shadow-md hover:shadow-lg transition-shadow md:text-[28px] md:py-3 md:px-10">
+                        <button className="bg-[#AFAFAF] text-black text-[24px] font-bold py-2 px-8 rounded-lg shadow-md hover:shadow-lg transition-shadow md:text-[28px] md:py-3 md:px-10">
                             DRAW
                         </button>
                     </Link>

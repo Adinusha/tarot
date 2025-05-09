@@ -1,3 +1,7 @@
+"use client";
+
+import { login } from "@/lib/actions/auth";
+
 export default function Login() {
     return (
         <div className="flex flex-col h-screen bg-gradient-to-tr from-[#2F2235] to-[#000000] overflow-hidden">
@@ -22,6 +26,9 @@ export default function Login() {
                 />
                 <button className="bg-white text-black text-[24px] font-bold py-2 px-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     LOGIN
+                </button>
+                <button onClick={() => login()}  className="bg-white text-black text-[24px] font-bold py-2 px-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                   GITHUB
                 </button>
             </div>
         </div>
