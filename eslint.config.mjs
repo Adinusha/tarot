@@ -13,7 +13,9 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next', 'prettier'],
   }),
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({ extends : ["next/core-web-vitals", "next/typescript"],
+    ignorePatterns: ["src/generated/**/*"]
+  }),
 ];
 // import.meta.dirname is available after Node.js v20.11.0
 compat.baseDirectory = import.meta.dirname;

@@ -1,6 +1,5 @@
-"use client";
+import Link from "next/link";
 
-import { login } from "@/lib/actions/auth";
 
 export default function Login() {
     return (
@@ -16,10 +15,18 @@ export default function Login() {
                 </svg>
 
                 <button
-                    onClick={() => login("github")} // Pass "github" as the provider name
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#AFA2B3] text-white font-bold py-2 px-4 rounded-full hover:bg-[#8f8a9b] transition duration-300 ease-in-out"
-                >
-                    Login
+                    className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#AFA2B3] text-white font-bold py-2 px-4 rounded-full hover:bg-[#8f8a9b] transition duration-300 ease-in-out"
+                ><Link href="/dashboard">
+                    DASHBOARD
+                </Link>
+
+
+                </button>
+                <button 
+                    className="top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#AFA2B3] text-white font-bold py-2 px-4 rounded-full hover:bg-[#8f8a9b] transition duration-300 ease-in-out"
+                >GITHUB
+
+                
                 </button>
             </div>
         </div>
