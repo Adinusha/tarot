@@ -1,3 +1,5 @@
+import { SignOutButton } from "@/app/components/sing-out-button";
+import { Sign } from "crypto";
 import Link from "next/link";
 import { useMemo } from "react";
 
@@ -66,6 +68,7 @@ export default function DashboardPage() {
                                 <h1 className="text-3xl text-center">Get Lucky</h1>
                             </button>
                         </Link>
+                        <SignOutButton />
                     </div>
                 </div>
             </div>

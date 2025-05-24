@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Label } from "./ui/label";
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "sonner";
@@ -64,7 +64,7 @@ import { signUp } from "@/lib/auth-client";
                 <div className="absolute">
                     <form onSubmit={handleSubmit}className="flex flex-col space-y-4">
                         <div>
-                            <input
+                            <Input
                                 type="email"
                                 id="email"
                                 name="email"
@@ -73,7 +73,7 @@ import { signUp } from "@/lib/auth-client";
                             />
                         </div>
                         <div>
-                            <input
+                            <Input
                                 type="text"
                                 id="username"
                                 name="username"
@@ -91,11 +91,11 @@ import { signUp } from "@/lib/auth-client";
                             />
                         </div>
                         <div className="flex justify-center pt-4">
-                            <button
+                            <Button
                             type="submit"
                         className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 submit
-                        </button>
+                        </Button>
                         </div>
                         
                     </form>
