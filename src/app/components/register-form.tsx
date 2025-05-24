@@ -1,5 +1,46 @@
-export default function Login() {
-    return (
+"use client";
+
+import React from "react";
+
+import { Label } from "./ui/label";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { toast } from "sonner";
+import { signUp } from "@/lib/auth-client";
+
+
+ export const RegisterForm = () => {
+    async function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
+        evt.preventDefault();
+        const formData = new FormData(evt.target as HTMLFormElement);
+
+        const name = String(formData.get("name"));
+        if (!name) return toast.error("Name is required");
+
+        const email = String(formData.get("email"));
+        if (!email) return toast.error("Email is required");
+
+        const password = String(formData.get("password"));
+        if (!password) return toast.error("Password is required");
+
+        await signUp.email(
+        {
+            name,
+            email,
+            password,
+        },
+        {
+            onRequest: () => {},
+            onResponse: () => {},
+            onError: (ctx) => {
+                toast.error(ctx.error.message);
+            },
+            onSuccess: () => {},
+        }
+    )
+        
+}
+    return(
         <div className="bg-gradient-to-r from-[#2F2235] to-[#000000] h-screen flex justify-center items-center">
             <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
                 <svg 
@@ -21,7 +62,7 @@ export default function Login() {
 
                 {/* Form Section */}
                 <div className="absolute">
-                    <form action="" className="flex flex-col space-y-4">
+                    <form onSubmit={handleSubmit}className="flex flex-col space-y-4">
                         <div>
                             <input
                                 type="email"
@@ -61,5 +102,5 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
