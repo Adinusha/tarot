@@ -58,7 +58,7 @@ export default function DashboardPage() {
                     </div>
                     <div className="bg-[#4D3657] w-[360px] h-[150px] rounded-lg shadow relative flex justify-center pt-6 ">
                         <h1 className="text-3xl text-center ">
-                            Today's Lucky Number<br />
+                            Today&apos;s Lucky Number<br />
                             <span className="items-center justify-center text-4xl font-bold">{luckyNumber}</span>
                             <div className="text-base mt-2">({zodiac})</div>
                         </h1>
