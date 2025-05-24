@@ -24,7 +24,7 @@ export const SignOutButton = () => {
         },
         onSuccess: () => {
           toast.success("You’ve logged out. See you soon!");
-          router.push("/auth/login");
+          router.push("../");
         },
       },
     });
@@ -32,15 +32,15 @@ export const SignOutButton = () => {
 
   return (
  
-        <Button
-        className="w-full h-full rounded-lg shadow relative bg-[#4D3657] flex justify-center items-center"
-        onClick={handleClick}
-        size="sm"
-        variant="destructive"
-        disabled={isPending}
-        >
-        <h1 className="text-3xl text-center ">Sign Out</h1>
-        </Button>
+    <Button
+      className="w-full mt-[20px] h-full rounded-lg shadow relative bg-[#4D3657] flex justify-center items-center"
+      onClick={handleClick}
+      size="sm"
+      variant="destructive"   
+      disabled={isPending}
+      >
+      <h1 className="text-3xl text-center ">Sign Out</h1>
+    </Button>
 
     
   );

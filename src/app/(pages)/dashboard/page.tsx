@@ -1,8 +1,9 @@
 import { SignOutButton } from "@/app/components/sing-out-button";
-import { Sign } from "crypto";
 import Link from "next/link";
 import { useMemo } from "react";
 
+// Removed duplicate and invalid async DashboardPage function.
+// If you need user info, implement session fetching in the main component or via props/context.
 
 function getZodiacSign(date = new Date()) {
     const day = date.getDate();
@@ -53,7 +54,7 @@ export default function DashboardPage() {
                 </svg>
                 <div className="absolute flex flex-col justify-center items-center gap-6">
                     <div className="bg-[#4D3657] w-[360px] h-[118px] rounded-lg shadow relative flex justify-center items-center">
-                        <h1 className="text-5xl text-center">Welcome Back User 🔮 </h1>
+                        <h1 className="text-4xl text-center">Welcome Back 🔮 </h1>
                     </div>
                     <div className="bg-[#4D3657] w-[360px] h-[150px] rounded-lg shadow relative flex justify-center pt-6 ">
                         <h1 className="text-3xl text-center ">

@@ -1,22 +1,18 @@
 "use client";
 
 import React from "react";
-import { Button } from "./ui/button";
+
 import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 import { toast } from "sonner";
-import { signUp } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { signIn } from "@/lib/auth-client";
 
-export const RegisterForm = () => {
-    const router = useRouter();
 
+
+ export const LoginForm = () => {
     async function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
         evt.preventDefault();
         const formData = new FormData(evt.target as HTMLFormElement);
-
-        const name = String(formData.get("username")); // match the input name
-        if (!name) return toast.error("Name is required");
 
         const email = String(formData.get("email"));
         if (!email) return toast.error("Email is required");
@@ -24,9 +20,8 @@ export const RegisterForm = () => {
         const password = String(formData.get("password"));
         if (!password) return toast.error("Password is required");
 
-        await signUp.email(
+        await signIn.email(
             {
-                name,
                 email,
                 password,
             },
@@ -37,13 +32,14 @@ export const RegisterForm = () => {
                     toast.error(ctx.error.message);
                 },
                 onSuccess: () => {
-                    router.push("/dashboard");
+                    toast.success("You’ve logged in successfully!");
+                    window.location.href = "/dashboard";
                 },
             }
-        );
-    }
+        )
+    }       
 
-    return (
+    return(
         <div className="bg-gradient-to-r from-[#2F2235] to-[#000000] h-screen flex justify-center items-center">
             <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
                 <svg 
@@ -62,8 +58,10 @@ export const RegisterForm = () => {
                 <div className="absolute -translate-y-[-277px] w-[131px] h-[166px] md:w-[460px] md:h-[585px] md:-translate-y-[-26px] md:translate-x-[380px]">
                     <img src="\tumblr_9967cdfbe402d12f00bf074d21a7d104_dd63b2d3_500.png" />
                 </div>
+
+                {/* Form Section */}
                 <div className="absolute">
-                    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+                    <form onSubmit={handleSubmit}className="flex flex-col space-y-4">
                         <div>
                             <Input
                                 type="email"
@@ -71,15 +69,6 @@ export const RegisterForm = () => {
                                 name="email"
                                 className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="email"
-                            />
-                        </div>
-                        <div>
-                            <Input
-                                type="text"
-                                id="username"
-                                name="username"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="username"
                             />
                         </div>
                         <div>
@@ -93,18 +82,15 @@ export const RegisterForm = () => {
                         </div>
                         <div className="flex justify-center pt-4">
                             <Button
-                                type="submit"
-                                className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                                Sign Up
-                            </Button> 
-                             
+                            type="submit"
+                        className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                LogIn
+                        </Button>
                         </div>
                         
                     </form>
-                        <p className="text-white pt-[20px] text-sm ">You already have an account? <Link href="/auth/login" className="hover:text-black" >Log In</Link></p> 
                 </div>
             </div>
         </div>
-    );
-};
+    )
+ }
