@@ -6,7 +6,8 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { signIn } from "@/lib/auth-client";
-
+import { Label } from "./ui/label";
+import Link from "next/link";
 
 
  export const LoginForm = () => {
@@ -39,7 +40,7 @@ import { signIn } from "@/lib/auth-client";
         )
     }       
 
-    return(
+    return (
         <div className="bg-gradient-to-r from-[#2F2235] to-[#000000] h-screen flex justify-center items-center">
             <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
                 <svg 
@@ -60,37 +61,50 @@ import { signIn } from "@/lib/auth-client";
                 </div>
 
                 {/* Form Section */}
-                <div className="absolute">
-                    <form onSubmit={handleSubmit}className="flex flex-col space-y-4">
+                <div className="absolute md:left-90 md:top-67">
+                    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 md:size-[300px]" >
                         <div>
+                            <Label htmlFor="email">Enter your Email:</Label>
                             <Input
                                 type="email"
                                 id="email"
                                 name="email"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="email"
+                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-grey placeholder-[font-family:'Inria Serif'] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm md:text-lg"
+                                placeholder="Email"
                             />
                         </div>
                         <div>
-                            <input
+                             <Label htmlFor="password">Enter your password:</Label>
+                            <Input
                                 type="password"
                                 id="password"
                                 name="password"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="password"
+                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-grey placeholder-[font-family:'Inria Serif'] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm md:text-lg"
+                                placeholder="Password"
                             />
+                        </div>
+
+                        {/* Link Section */}
+                        <div className="mt-4 text-center">
+                            <p className="text-sm text-white">
+                                You don't have an account?{" "}
+                                <Link href="/auth/register" className="text-[#FFC6C6] hover:underline">
+                                    Sign Up
+                                </Link>
+                            </p>
                         </div>
                         <div className="flex justify-center pt-4">
                             <Button
-                            type="submit"
-                        className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                LogIn
-                        </Button>
+                                type="submit"
+                                className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-[#2F2235] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            >
+                                Log In
+                            </Button>
+                              
                         </div>
-                        
                     </form>
                 </div>
             </div>
         </div>
-    )
- }
+    );        
+}

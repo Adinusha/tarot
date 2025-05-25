@@ -1,5 +1,6 @@
 import Link from 'next/link';
 export default function Mainpage() {
+    
     return (
     <div className="flex flex-col h-screen bg-gradient-to-tr from-[#2F2235] to-[#000000] overflow-hidden">
         <div className="md:shrink-0 md:content-center md:items-center md:justify-items-center md:column-1 md:gap-26 md:pl-[15px] md:flex md:pt-[132px] md:mx-auto ">        

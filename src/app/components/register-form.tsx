@@ -1,5 +1,7 @@
 "use client";
 
+
+import { Label } from "./ui/label";
 import React from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -62,49 +64,62 @@ export const RegisterForm = () => {
                 <div className="absolute -translate-y-[-277px] w-[131px] h-[166px] md:w-[460px] md:h-[585px] md:-translate-y-[-26px] md:translate-x-[380px]">
                     <img src="\tumblr_9967cdfbe402d12f00bf074d21a7d104_dd63b2d3_500.png" />
                 </div>
-                <div className="absolute">
-                    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+
+                {/* Form Section */}
+                <div className="absolute md:left-90 md:top-50">
+                    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 md:size-[300px]" >
                         <div>
+                            <Label htmlFor="email">Enter your Email:</Label>
                             <Input
                                 type="email"
                                 id="email"
                                 name="email"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="email"
+                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-grey placeholder-[font-family:'Inria Serif'] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm md:text-lg"
+                                placeholder="Email"
                             />
                         </div>
                         <div>
+                             <Label htmlFor="username">Enter your username:</Label>
                             <Input
                                 type="text"
                                 id="username"
                                 name="username"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="username"
+                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-grey placeholder-[font-family:'Inria Serif'] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm md:text-lg"
+                                placeholder="Username"
                             />
                         </div>
                         <div>
-                            <input
+                             <Label htmlFor="password">Enter your password:</Label>
+                            <Input
                                 type="password"
                                 id="password"
                                 name="password"
-                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                placeholder="password"
+                                className="mt-1 block w-full px-3 py-2 bg-[#EBE2EF] text-black placeholder-grey placeholder-[font-family:'Inria Serif'] border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm md:text-lg"
+                                placeholder="Password"
                             />
+                        </div>
+
+                        {/* Link Section */}
+                        <div className="mt-4 text-center">
+                            <p className="text-sm text-white">
+                                You already have an account?{" "}
+                                <Link href="/auth/login" className="text-[#FFC6C6] hover:underline">
+                                    Log in
+                                </Link>
+                            </p>
                         </div>
                         <div className="flex justify-center pt-4">
                             <Button
                                 type="submit"
-                                className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                className="flex justify-center w-30 bg-[#AFA2B3] text-white py-2 px-4 rounded-md hover:bg-[#2F2235] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
-                                Sign Up
-                            </Button> 
-                             
+                                Sign in
+                            </Button>
+                              
                         </div>
-                        
                     </form>
-                        <p className="text-white pt-[20px] text-sm ">You already have an account? <Link href="/auth/login" className="hover:text-black" >Log In</Link></p> 
                 </div>
             </div>
         </div>
-    );
-};
+    );        
+}
