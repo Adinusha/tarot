@@ -33,7 +33,7 @@ import Link from "next/link";
                     toast.error(ctx.error.message);
                 },
                 onSuccess: () => {
-                    toast.success("You’ve logged in successfully!");
+                     toast.success("You &apos, ve logged in successfully!");
                     window.location.href = "/dashboard";
                 },
             }
