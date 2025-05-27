@@ -1,6 +1,7 @@
-<?php
-// filepath: tarotpedia.php
 
+
+
+<?php
 
 
 $cards = [
@@ -58,7 +59,7 @@ $cards = [
 
 
 
-// Search logic
+
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $found = null;
 if ($search !== '') {
@@ -70,7 +71,7 @@ if ($search !== '') {
     }
 }
 
-// Slideshow logic (if not searching)
+
 $i = isset($_GET['i']) ? intval($_GET['i']) : 0;
 $total = count($cards);
 if ($i < 0) $i = $total - 1;
@@ -260,5 +261,6 @@ $card = $found ?: $cards[$i];
         <?php echo ($i + 1) . " / $total"; ?>
     </div>
     <?php endif; ?>
+    
 </body>
 </html>

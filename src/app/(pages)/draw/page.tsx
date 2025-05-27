@@ -1,7 +1,7 @@
 "use client";
 import React, { useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/app/components/navbar";
+
 
 const images = [
   { src: 'Death.webp', text: 'Transformation and new beginnings.' },
@@ -120,7 +120,7 @@ export default function Login() {
 
   return (
     <div className="bg-gradient-to-r from-[#2F2235] to-[#000000] h-screen w-screen flex justify-center items-center relative overflow-hidden">
-      <Navbar />
+      
       {/* SVG and background */}
       <svg
         className="scale-[460%] md:w-[100%] md:h-[100%] md:scale-[110%] md:max-w-full md:max-h-full md:inset-0 md:-translate-x-[50px] absolute"

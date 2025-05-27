@@ -14,7 +14,7 @@ export default function Navbar() {
         <span className="text-[10px] text-white group-hover:text-[#2F2235]">Home</span>
       </Link>
       {/* Taropedia Button */}
-      <a href="http://localhost/page.php" className="flex flex-col items-center group">
+      <a href="http://localhost/tarotpedia/page.php" className="flex flex-col items-center group">
         <span className="w-6 h-6 mb-0.5 flex items-center justify-center">
           <img src="/wiki.png" alt="Taropedia" className="w-6 h-6" />
         </span>
